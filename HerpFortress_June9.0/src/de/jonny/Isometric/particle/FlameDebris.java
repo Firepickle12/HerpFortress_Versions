@@ -1,0 +1,43 @@
+package de.jonny.Isometric.particle;
+
+import de.jonny.Isometric.Bitmap;
+
+public class FlameDebris extends Debris {
+	public int maxLife;
+	
+	public FlameDebris(double x, double y, double z) {
+		super(x, y, z);
+		
+		maxLife = life /= 2;
+		
+		drag = 0.92;
+		icon = random.nextInt(3) + 8;
+		gravity = 0;
+	}
+	
+	
+
+	public void tick() {
+		super.tick();
+		if (removed) {
+			Debris smoke = new SmokeDebris(x, y, z);
+			smoke.xa *= 0.1;
+			smoke.ya *= 0.1;
+			smoke.za *= 0.1;
+			smoke.xa += xa * 1;
+			smoke.ya += ya * 1;
+			smoke.za += za * 1;
+			level.add(smoke);
+		}
+	}
+
+
+
+	public void render(Bitmap b) {
+		icon = 8 * 2 + 3 - 4 * life / maxLife;
+		super.render(b);
+	}
+	
+	public void renderShadow(Bitmap b) {
+	}
+}
