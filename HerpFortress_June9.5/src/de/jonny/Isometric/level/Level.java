@@ -28,7 +28,7 @@ public class Level {
 	
 	public Blockmap blockmap;
 	
-	// Sortieralgorithmus, da Sprites ein Objekt ist und TreeSets nur Datentypen ohne Hilfe sortieren können.
+	// Sortieralgorithmus, da Sprites ein Objekt ist und TreeSets nur Datentypen ohne Hilfe sortieren kÃ¶nnen.
 	public Comparator<Sprite> spriteComparator = new Comparator<Sprite>() {
 		public int compare(Sprite s0, Sprite s1) {
 			if (s0.y < s1.y) return -1;
@@ -131,8 +131,8 @@ public class Level {
 		
 		if (xx0 < 0) xx0 = 0;
 		if (yy0 < 0) yy0 = 0;
-		if (xx1 >= xs) xx0 = xs - 1;
-		if (yy1 >= ys) yy0 = ys - 1;
+		if (xx1 >= xs) xx1 = xs - 1;
+		if (yy1 >= ys) yy1 = ys - 1;
 		
 		for (int y = yy0; y <= yy1; y++) {
 			for (int x = xx0; x <= xx1; x++) {
